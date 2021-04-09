@@ -1,0 +1,10 @@
+<!--pages/welcome/welcome.wxml-->
+<view class="container">
+  <image class="avatar" src="/images/dog.png"></image>
+  <text class="text">Hello,Daisy柔</text>
+  <!-- <button>开启小程序之旅</button> -->
+  <!-- 使用view模拟button -->
+  <view class="btn">
+    <text class="journey">开启小程序之旅</text>
+  </view>
+</view>
