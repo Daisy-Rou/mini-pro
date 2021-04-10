@@ -1,6 +1,7 @@
 <!--pages/welcome/welcome.wxml-->
 <view class="container">
-  <image class="avatar" src="/images/dog.png"></image>
+  <!-- <image class="avatar" src="/images/dog.png"></image> -->
+  <l-avatar shape="circle" size="180" placement="bottom" open-data="{{['userAvatarUrl', 'userNickName']}}"></l-avatar>
   <text class="text">Hello,Daisy柔</text>
   <!-- <button>开启小程序之旅</button> -->
   <!-- 使用view模拟button -->
