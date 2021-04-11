@@ -12,4 +12,19 @@
       <image src="/images/cat.png"></image>
     </swiper-item>
   </swiper>
+  <view class="post-container">
+    <view class="post-author-date">
+      <image class="post-author" src="/images/keai.png"></image>
+      <text class="post-date">Nov 18 2020</text>
+    </view>
+    <text class="post-title">2020喜欢速度</text>
+    <image class="post-image" src="/images/padx.png"></image>
+    <text class="post-content">很方便还没结束国标麻将等各环节句开发出那地方VB你纯棉尿布女解放碑北京航峰的蜂鸟计划不放假看的发布不喝酒不放假</text>
+    <view class="post-like">
+      <image class="post-like-image" src="/images/dog.png"></image>
+      <text class="post-like-font">92</text>
+      <image class="post-like-image" src="/images/girl.png"></image>
+      <text class="post-like-font">102</text>
+    </view>
+  </view>
 </view>
