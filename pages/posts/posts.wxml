@@ -1,0 +1,15 @@
+<!--pages/posts/posts.wxml-->
+<view>
+  <swiper indicator-dots="{{true}}" autoplay="{{true}}" circular>
+    <swiper-item>
+      <!-- 插槽的作用 -->
+      <image src="/images/padx.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/dog.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/cat.png"></image>
+    </swiper-item>
+  </swiper>
+</view>
