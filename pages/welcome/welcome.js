@@ -1,13 +1,29 @@
 // pages/welcome/welcome.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
 
   },
-
+  startJourney: function(event) {
+    console.log(event)
+    // 页面路由跳转 
+    // 子页面 可返回
+    // wx.navigateTo({
+    //   url: '/pages/posts/posts',
+    // })
+    // 不可返回
+    wx.redirectTo({
+      url: '/pages/posts/posts',
+    })
+  },
+  onViewTap: function(event) {
+    console.log('view tap')
+  },
+  onTextTap: function(event) {
+    console.log('text tap')
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -40,7 +56,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    console.log('hhhhhhh')
   },
 
   /**

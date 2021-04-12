@@ -6,6 +6,10 @@
   <!-- <button>开启小程序之旅</button> -->
   <!-- 使用view模拟button -->
   <view class="btn">
-    <text class="journey">开启小程序之旅</text>
+    <text class="journey" data-hi="Weixin" bind:tap="startJourney">开启小程序之旅</text>
   </view>
+  <!-- catch 阻止事件冒泡 bind 不会阻止冒泡 -->
+  <!-- <view class="btn" catch:tap="onViewTap">
+    <text class="journey" data-hi="Weixin" catch:tap="onTextTap">开启小程序之旅</text>
+  </view> -->
 </view>

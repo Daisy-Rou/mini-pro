@@ -12,10 +12,10 @@
       <image src="/images/cat.png"></image>
     </swiper-item>
   </swiper>
-  <block wx:for="{{posts}}" wx:for-item="item" wx:key="index">
+  <block wx:for="{{postList}}" wx:for-item="item" wx:key="index">
     <view class="post-container">
       <view class="post-author-date">
-        <image class="post-author" src="/images/keai.png"></image>
+        <image class="post-author" src="{{item.avatar}}"></image>
         <text class="post-date">{{item.date}}</text>
       </view>
       <!-- // 小程序单向数据绑定 -->

@@ -5,7 +5,6 @@
     "pages/logs/logs",
     "pages/posts/posts"
   ],
-  "entryPagePath" : "pages/posts/posts",
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#C22A1E",
