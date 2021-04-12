@@ -10,7 +10,8 @@
   <text class="title">科技部的生产商</text>
   <view class="tool">
     <view class="circle">
-      <image class="circle-img" src="/images/xiangrikui.png"></image>
+      <image wx:if="{{!collected}}" bind:tap="onCollect" class="circle-img" src="/images/xiangrikui.png"></image>
+      <image wx:else bind:tap="onCollect" class="circle-img" src="/images/dog.png"></image>
       <image src="/images/girl.png"></image>
     </view>
     <view class="horizon"></view>
