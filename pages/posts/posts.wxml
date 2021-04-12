@@ -1,4 +1,4 @@
-<!--pages/posts/posts.wxml-->
+<!--文章列表页面pages/posts/posts.wxml-->
 <view>
   <swiper indicator-dots="{{true}}" autoplay="{{true}}" circular>
     <swiper-item>
@@ -13,7 +13,8 @@
     </swiper-item>
   </swiper>
   <block wx:for="{{postList}}" wx:for-item="item" wx:key="index">
-    <view class="post-container">
+    <!-- 自定义数据 -->
+    <view bind:tap="goToDetail" data-post-id="{{item.postId}}" class="post-container">
       <view class="post-author-date">
         <image class="post-author" src="{{item.avatar}}"></image>
         <text class="post-date">{{item.date}}</text>

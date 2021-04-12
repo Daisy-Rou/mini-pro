@@ -1,29 +1,26 @@
-// pages/posts/posts.js
-// 导入
-// var postData = require("../../data/posts-data")
-// console.log(postData)
-// 导入
-import {postList} from '../../data/posts-data.js'
+// pages/post-detail/post-detail.js
+import { postList } from '../../data/posts-data'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    a: '就开始你觉得好的借口'
+
   },
-  goToDetail (event) {
-    const pid = event.currentTarget.dataset.postId
-    wx.navigateTo({
-      url: '/pages/post-detail/post-detail?pid=' + JSON.stringify(pid),
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      postList
+    const pid = JSON.parse(options.pid)
+    postList.forEach(item => {
+      if (item.postId === pid) {
+        console.log(item.postId)
+        this.setData({
+          postList: item
+        })
+      }
     })
   },
 
