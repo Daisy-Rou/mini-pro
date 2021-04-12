@@ -21,19 +21,32 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  async onLoad(options) {
     this.setData({
       postList
     })
     // 同步设置缓存
-    wx.setStorageSync('flag', true)
+    wx.setStorageSync('flag', 3)
     // 清除缓存
     // wx.removeStorageSync('flag')
     // // 清空所有缓存
     // wx.clearStorageSync()
-    // 读取缓存
-    const flag  = wx.getStorageSync('flag')
-    console.log(flag)
+    // 读取缓存同步
+    // const flag  = wx.getStorageSync('flag')
+    // 读取缓存异步
+    const flag = await wx.getStorage({
+      key: 'flag',
+      // 1111 老版小程序获取异步数据
+      // success(value) {
+      //   console.log(value.data)
+      // }
+    })
+    // 22222 新版小程序获取异步数据
+    // flag.then(value => {
+    //   console.log(value.data)
+    // })
+    // 33333 async await
+    console.log(flag.data)
   },
 
   /**
