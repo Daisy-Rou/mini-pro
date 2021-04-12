@@ -73,3 +73,12 @@
   background-color: #e5e5e5;
   position: absolute;
 }
+
+.detail {
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  margin-right: 30rpx;
+  line-height: 44rpx;
+  letter-spacing: 2px;
+  font-size: 24rpx;
+}

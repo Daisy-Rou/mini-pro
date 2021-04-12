@@ -23,6 +23,9 @@ Page({
       collected: !this.data.collected
     })
     wx.setStorageSync('posts_collected', postsCollected)
+    wx.showToast({
+      title: this.data.collected ? '收藏成功' : "取消收藏",
+    })
   },
   /**
    * 生命周期函数--监听页面加载
