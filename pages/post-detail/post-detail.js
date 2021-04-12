@@ -1,5 +1,7 @@
 // pages/post-detail/post-detail.js
 import { postList } from '../../data/posts-data'
+const app = getApp()
+console.log(app.test)
 Page({
 
   /**

@@ -25,6 +25,15 @@ Page({
     this.setData({
       postList
     })
+    // 同步设置缓存
+    wx.setStorageSync('flag', true)
+    // 清除缓存
+    // wx.removeStorageSync('flag')
+    // // 清空所有缓存
+    // wx.clearStorageSync()
+    // 读取缓存
+    const flag  = wx.getStorageSync('flag')
+    console.log(flag)
   },
 
   /**

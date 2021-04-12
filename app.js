@@ -13,6 +13,8 @@ App({
       }
     })
   },
+  // 定义全局变量
+  test: 1,
   globalData: {
     userInfo: null
   }
