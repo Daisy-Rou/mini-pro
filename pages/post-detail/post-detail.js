@@ -12,7 +12,7 @@ Page({
     isPlaying: false,
     // 不做数据绑定前面加_
     _pid: null,
-    _postsCollected: {},
+    _postsCollected: {}, // 文章收藏状态
     _mgr: null,
   },
   // 收藏
@@ -69,9 +69,21 @@ Page({
         mgr.coverImgUrl = music.coverImg
       }
     })
+    // 用全局变量来保存音乐的播放状态
+    app.gPlayingMusic = true
+    app.gPlayingPostId = this.data._pid
     this.setData({
       isPlaying: true
     })
+  },
+  currentPostPlayMusic() {
+    if (app.gPlayingMusic) {
+      if (app.gPlayingPostId === this.data._pid) {
+        return true
+      }
+      return false
+    }
+    return false
   },
   // 音乐暂停
   onStopMusic() {
@@ -82,6 +94,8 @@ Page({
     mgr.pause()
     // 音乐停止 显示play状态图片
     // 音乐播放 显示stop状态图片
+    app.gPlayingMusic = false
+    app.gPlayingPostId = -1
     this.setData({
       isPlaying: false
     })
@@ -99,8 +113,10 @@ Page({
     if (collected === undefined)  {
       collected = false
     }
+
     this.setData({
       collected,
+      isPlaying: this.currentPostPlayMusic()
     })
     postList.forEach(item => {
       if (item.postId === pid) {

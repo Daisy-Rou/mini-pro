@@ -17,5 +17,9 @@ App({
   test: 1,
   globalData: {
     userInfo: null
-  }
+  },
+  // 歌曲播放状态
+  gPlayingMusic: false,
+  // 记录每首歌的播放状态
+  gPlayingPostId: -1,
 })
