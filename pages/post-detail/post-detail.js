@@ -8,12 +8,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    postList: {},
     collected: false,
     // 不做数据绑定前面加_
     _pid: null,
     _postsCollected: {}
   },
-  onCollect() {
+  async onCollect() {
     // 假设为收藏->收藏
     // 那篇文章被收藏
     // 多篇文章被收藏
@@ -24,8 +25,24 @@ Page({
     })
     wx.setStorageSync('posts_collected', postsCollected)
     wx.showToast({
-      title: this.data.collected ? '收藏成功' : "取消收藏",
+      title: this.data.collected ? '收藏成功' : "取消收藏",           
     })
+    // 3333 async await
+    // const result = await wx.showModal({
+    //   title: "是否确认收藏文章",
+      // 1111 不论点击取消还是确定都会触发success回调
+      // success(event) {
+      //   console.log(event.confirm)
+      // }
+    // })
+    // if (result.confirm) {
+    //   // 逻辑 TODO
+    // }
+    // console.log('124', result)
+    // 2222 Promise then
+    // result.then(res => {
+    //   console.log(res.confirm)
+    // })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -34,7 +51,7 @@ Page({
     const pid = JSON.parse(options.pid)
     this.data._pid = pid
     // 从缓存中读取收藏状态
-    const postsCollected = wx.getStorageSync('posts_collected')
+    const postsCollected = wx.getStorageSync('posts_collected') || {}
     this.data._postsCollected = postsCollected
     let collected = postsCollected[options.pid]
     if (collected === undefined)  {
