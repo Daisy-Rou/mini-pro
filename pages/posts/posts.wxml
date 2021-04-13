@@ -3,10 +3,10 @@
   <swiper indicator-dots="{{true}}" autoplay="{{true}}" circular>
     <swiper-item>
       <!-- 插槽的作用 -->
-      <image src="/images/padx.png"></image>
+      <image data-post-id="{{3}}" bind:tap="goToDetail" src="/images/padx.png"></image>
     </swiper-item>
     <swiper-item>
-      <image src="/images/dog.png"></image>
+      <image data-post-id="{{7}}" bind:tap="goToDetail" src="/images/dog.png"></image>
     </swiper-item>
     <swiper-item>
       <image src="/images/cat.png"></image>
