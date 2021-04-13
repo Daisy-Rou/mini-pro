@@ -1,6 +1,7 @@
 <!--文章详情页面pages/post-detail/post-detail.wxml-->
 <view class="container-post-detail">
   <image class="head-image" src="{{postList.imgSrc}}"></image>
+  <image bind:tap="onPlayMusic" class="audio" src="/images/dazuiya.png"></image>
   <view class="author-date">
     <image class="avatar" src="/images/tuanzi.png"></image>
     <text class="author">猫是猫的猫</text>
@@ -12,7 +13,7 @@
     <view class="circle">
       <image wx:if="{{!collected}}" bind:tap="onCollect" class="circle-img" src="/images/xiangrikui.png"></image>
       <image wx:else bind:tap="onCollect" class="circle-img" src="/images/dog.png"></image>
-      <image src="/images/girl.png"></image>
+      <image bind:tap="onShare" src="/images/girl.png"></image>
     </view>
     <view class="horizon"></view>
   </view>

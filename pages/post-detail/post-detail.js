@@ -14,6 +14,7 @@ Page({
     _pid: null,
     _postsCollected: {}
   },
+  // 收藏
   async onCollect() {
     // 假设为收藏->收藏
     // 那篇文章被收藏
@@ -43,6 +44,24 @@ Page({
     // result.then(res => {
     //   console.log(res.confirm)
     // })
+  },
+  // 分享
+  onShare() {
+    wx.showActionSheet({
+      itemList: ['分享到QQ', '分享到微信', '分享到朋友圈'],
+      success(res) {
+        console.log(res.tapIndex)
+      },
+      fail(res) {
+        console.log(res.errMsg)
+      }
+    })
+  },
+  // 音乐播放
+  onPlayMusic() {
+    const mgr = wx.getBackgroundAudioManager()
+    mgr.src = postList[0].music.url
+    mgr.title = postList[0].music.title
   },
   /**
    * 生命周期函数--监听页面加载
@@ -108,13 +127,24 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    const promise = new Promise(resolve => {
+      setTimeout(() => {
+        resolve({
+          title: '哈喽'
+        })
+      }, 2000)
+    })
+    return {
+      title: '哈喽一1',
+      path: '/pages/post-detail/post-detail?pid=3',
+      promise
+    }
   }
 })

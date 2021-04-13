@@ -7,6 +7,16 @@
   width: 100%;
   height: 460rpx;
 }
+.audio {
+  width: 102rpx;
+  height: 102rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  margin-left: -51rpx;
+  top: 230rpx;
+  margin-top: -51rpx;
+}
 .author-date {
   display: flex;
   flex-direction: row;

@@ -12,6 +12,7 @@
     "navigationBarTitleText": "Daisy",
     "navigationBarTextStyle": "black"
   },
+  "requiredBackgroundModes": ["audio", "location"],
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
