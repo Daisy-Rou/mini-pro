@@ -10,7 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    a: '就开始你觉得好的借口'
+    a: '就开始你觉得好的借口',
   },
   goToDetail (event) {
     const pid = event.currentTarget.dataset.postId
