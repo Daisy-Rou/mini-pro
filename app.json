@@ -4,7 +4,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/posts/posts",
-    "pages/post-detail/post-detail"
+    "pages/post-detail/post-detail",
+    "pages/movies/movies"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -17,5 +18,20 @@
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
     "l-icon": "/miniprogram_npm/lin-ui/icon/index"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "position": "bottom",
+    "list": [{
+      "pagePath": "pages/posts/posts",
+      "text": "阅读",
+      "iconPath": "/images/keai.png",
+      "selectedIconPath": "/images/keai.png"
+    }, {
+      "pagePath": "pages/movies/movies",
+      "text": "电影",
+      "iconPath": "/images/xiangrikui.png",
+      "selectedIconPath": "/images/xiangrikui.png"
+    }]
   }
 }
