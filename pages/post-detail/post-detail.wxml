@@ -1,7 +1,9 @@
 <!--文章详情页面pages/post-detail/post-detail.wxml-->
 <view class="container-post-detail">
   <image class="head-image" src="{{postList.imgSrc}}"></image>
-  <image bind:tap="onPlayMusic" class="audio" src="/images/dazuiya.png"></image>
+  <image wx:if="{{!isPlaying}}" bind:tap="onPlayMusic" class="audio" src="/images/dazuiya.png"></image>
+  <image wx:else bind:tap="onStopMusic" class="audio" src="/images/cat.png"></image>
+  <!-- <image bind:tap="onPlayMusic" class="audio" src="{{!isPlaying ? '/images/dazuiya.png' : '/images/cat.png'}}"></image> -->
   <view class="author-date">
     <image class="avatar" src="/images/tuanzi.png"></image>
     <text class="author">猫是猫的猫</text>

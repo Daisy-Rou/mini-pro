@@ -13,9 +13,9 @@ var postList = [
     avatar: "/images/tuanzi.png",
     postId: 3,
     music: {
-      url: "",
-      title: "cdj1",
-      coverImg: ""
+      url: "http://m701.music.126.net/20210413154006/d3e1e0169d56d7e50e856e0c3355df66/jdyyaac/5209/5158/010e/ec2ebb10a1f27cc0d06a6d31dcb60096.m4a",
+      title: "水星记",
+      coverImg: "/images/girl.png"
     }
   },
   {
@@ -32,9 +32,9 @@ var postList = [
     avatar: "/images/keai.png",
     postId: 7,
     music: {
-      url: "",
-      title: "cdj1",
-      coverImg: ""
+      url: "http://m10.music.126.net/20210413154214/2977efa0db8052c9bd9c557931a6076c/ymusic/055d/015a/0f58/273fa2011d605b17327a82d526f51a34.mp3",
+      title: "幸福是被你需要",
+      coverImg: "/images/xiangrikui.png"
     }
   }
 ]

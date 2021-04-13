@@ -8,11 +8,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    postList: {},
     collected: false,
+    isPlaying: false,
     // 不做数据绑定前面加_
     _pid: null,
-    _postsCollected: {}
+    _postsCollected: {},
+    _mgr: null,
   },
   // 收藏
   async onCollect() {
@@ -59,9 +60,31 @@ Page({
   },
   // 音乐播放
   onPlayMusic() {
-    const mgr = wx.getBackgroundAudioManager()
-    mgr.src = postList[0].music.url
-    mgr.title = postList[0].music.title
+    const mgr = this.data._mgr
+    postList.forEach((item, index) => {
+      if (item.postId === this.data._pid) {
+        const music = postList[index].music
+        mgr.src = music.url
+        mgr.title = music.title
+        mgr.coverImgUrl = music.coverImg
+      }
+    })
+    this.setData({
+      isPlaying: true
+    })
+  },
+  // 音乐暂停
+  onStopMusic() {
+    const mgr = this.data._mgr
+    // 停止
+    // mgr.stop()
+    // 暂停
+    mgr.pause()
+    // 音乐停止 显示play状态图片
+    // 音乐播放 显示stop状态图片
+    this.setData({
+      isPlaying: false
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -86,6 +109,15 @@ Page({
         })
       }
     })
+    // 获取音乐播放对象
+    const mgr = wx.getBackgroundAudioManager()
+    this.data._mgr = mgr
+    // 监听背景音频播放事件
+    mgr.onPlay(this.onPlayMusic)
+    // 监听背景音频停止事件
+    mgr.onStop(this.onStopMusic)
+    // 监听背景音频暂停事件
+    mgr.onPause(this.onStopMusic)
   },
 
   /**
