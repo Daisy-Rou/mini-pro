@@ -40,6 +40,7 @@ Page({
    * 页面上拉触底事件的处理函数
   */
   onReachBottom: function () {
+    wx.showNavigationBarLoading()
     wx.request({
       url: baseUrl + this.data._type,
       data: {
@@ -51,17 +52,44 @@ Page({
         this.setData({
           movies: list
         })
+        wx.hideNavigationBarLoading()
       },
       fail: (res) => {
         console.log(res)
       }
     })
   },
+
+    /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    wx.request({
+      url: baseUrl + this.data._type,
+      data: {
+        start: 0,
+        count: 10
+      },
+      success: (res) => {
+        this.setData({
+          movies: res.data.subjects
+        })
+      },
+      fail: (res) => {
+        console.log(res)
+      }
+    })
+    // wx.startPullDownRefresh()
+    // setTimeout(() => {
+    //   wx.stopPullDownRefresh()
+    // })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
@@ -82,13 +110,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
 
   },
 
