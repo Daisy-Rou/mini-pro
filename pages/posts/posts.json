@@ -2,5 +2,6 @@
   "usingComponents": {
     "l-icon": "/miniprogram_npm/lin-ui/icon/index",
     "h-post": "/components/post/index"
-  }
+  },
+  "navigationBarTitleText": "文与字"
 }

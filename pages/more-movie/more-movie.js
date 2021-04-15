@@ -74,6 +74,7 @@ Page({
         this.setData({
           movies: res.data.subjects
         })
+        wx.stopPullDownRefresh()
       },
       fail: (res) => {
         console.log(res)
@@ -89,9 +90,29 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+    let title = this.initTitle(this.data._type)
+    wx.setNavigationBarTitle({
+      title: title,
+    })
   },
-
+  initTitle (data) {
+    let title = ''
+    switch(data) {
+      case 'in_theaters': 
+        title = '正在热映' 
+        break
+      case 'coming_soon': 
+        title = '即将上映'
+        break
+      case 'top250': 
+        title = '豆瓣top250'
+        break
+      default: 
+        title = '无标题'
+        break
+    }
+    return title
+  },
   /**
    * 生命周期函数--监听页面显示
    */
