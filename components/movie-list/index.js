@@ -22,6 +22,9 @@ Component({
    */
   methods: {
     onMore() {
+      wx.navigateTo({
+        url: '/pages/more-movie/more-movie',
+      })
       console.log(111)
     }
   }

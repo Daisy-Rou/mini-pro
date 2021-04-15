@@ -1,0 +1,6 @@
+<!--电影详情页面pages/more-movie/more-movie.wxml-->
+<view class="container-more">
+  <block wx:for="{{movies}}" wx:key="index">
+    <h-movie class="movie" movie="{{item}}"></h-movie>
+  </block>
+</view>

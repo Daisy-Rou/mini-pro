@@ -5,7 +5,8 @@
     "pages/logs/logs",
     "pages/posts/posts",
     "pages/post-detail/post-detail",
-    "pages/movies/movies"
+    "pages/movies/movies",
+    "pages/more-movie/more-movie"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -13,7 +14,10 @@
     "navigationBarTitleText": "Daisy",
     "navigationBarTextStyle": "black"
   },
-  "requiredBackgroundModes": ["audio", "location"],
+  "requiredBackgroundModes": [
+    "audio",
+    "location"
+  ],
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
@@ -22,16 +26,19 @@
   "tabBar": {
     "borderStyle": "white",
     "position": "bottom",
-    "list": [{
-      "pagePath": "pages/posts/posts",
-      "text": "阅读",
-      "iconPath": "/images/keai.png",
-      "selectedIconPath": "/images/keai.png"
-    }, {
-      "pagePath": "pages/movies/movies",
-      "text": "电影",
-      "iconPath": "/images/xiangrikui.png",
-      "selectedIconPath": "/images/xiangrikui.png"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/posts/posts",
+        "text": "阅读",
+        "iconPath": "/images/keai.png",
+        "selectedIconPath": "/images/keai.png"
+      },
+      {
+        "pagePath": "pages/movies/movies",
+        "text": "电影",
+        "iconPath": "/images/xiangrikui.png",
+        "selectedIconPath": "/images/xiangrikui.png"
+      }
+    ]
   }
 }

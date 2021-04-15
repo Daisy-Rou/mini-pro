@@ -1,5 +1,5 @@
-// pages/movies/movies.js
-const baseUrl = getApp().gBaseUrl
+// pages/more-movie/more-movie.js
+const baseUrl = getApp().gBaseUrl;
 Page({
 
   /**
@@ -7,54 +7,34 @@ Page({
    */
   data: {
     inTheaters: [],
-    commingSoon: [],
-    top250: [],
+    comingSoon: [],
+    top250:[],
+    movies: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-    // 不要在自定义组件发请求
+  onLoad: function (options) {
+    const type = options.type
     // 正在热映
     wx.request({
-      url: baseUrl + 'in_theaters',
+      url: baseUrl + type,
       data: {
-        start: 5,
-        count: 3
+        start: 0,
+        count: 10
       },
       success: (res) => {
         this.setData({
-          inTheaters: res.data.subjects
+          movies: res.data.subjects
         })
+      },
+      fail: (res) => {
+        console.log(res)
       }
-    })
-    // 即将上映
-    wx.request({
-      url: baseUrl + 'coming_soon?start=8&count=3',
-      success: (res) => {
-        this.setData({
-          commingSoon: res.data.subjects
-        })
-      }
-    })
-    // top250
-    wx.request({
-      url: baseUrl + 'top250?start=6&count=3',
-      success: (res) => {
-        this.setData({
-          top250: res.data.subjects
-        })
-      }
-    })
-    // API地址
-  },
-  onGotoMore(event){
-    const type = event.currentTarget.dataset.type
-    wx.navigateTo({
-      url: '/pages/more-movie/more-movie?type=' + type,
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
