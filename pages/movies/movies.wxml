@@ -1,7 +1,27 @@
 <!--电影首页pages/movies/movies.wxml-->
 <view>
+  <!-- 搜索组件 -->
+  <l-search-bar 
+    l-class="ex-search-bar" 
+    placeholder="盗梦空间"
+    show-cancel="{{false}}"
+    bind:linconfirm="onSearchMovie"
+  >
+  </l-search-bar>
   <!-- 电影list组件 -->
+ <view wx:if="{{!searchResult}}">
   <movie-list data-type="in_theaters" bind:tap="onGotoMore" title="正在热映" movies="{{inTheaters}}" f-class="movie-list"></movie-list>
   <movie-list data-type="coming_soon" bind:tap="onGotoMore" title="即将上演" movies="{{commingSoon}}"></movie-list>
   <movie-list data-type="top250" bind:tap="onGotoMore" title="豆瓣Top250" movies="{{top250}}"></movie-list>
+ </view>
+ <view wx:else>
+  <view wx:if="{{searchList.length > 0}}" class="container-more">
+    <block wx:for="{{searchList}}" wx:key="index">
+      <h-movie class="movie" movie="{{item}}"></h-movie>
+    </block>
+  </view>
+   <view wx:else class="search-null">
+    <text>暂无该影视资源</text>
+   </view>
+ </view>
 </view>

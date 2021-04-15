@@ -5,3 +5,22 @@
 page {
   background-color: #f2f2f2;
 }
+.vex-search-bar {
+  height: 90rpx !important;
+}
+.search-null {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 28rpx;
+}
+.container-more {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30rpx 28rpx;
+  justify-content: space-between;
+}
+.movie {
+  margin-bottom: 30rpx;
+}

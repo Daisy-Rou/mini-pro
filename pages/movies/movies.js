@@ -9,6 +9,8 @@ Page({
     inTheaters: [],
     commingSoon: [],
     top250: [],
+    searchList: [],
+    searchResult: false
   },
 
   /**
@@ -49,10 +51,33 @@ Page({
     })
     // API地址
   },
+  // 跳转到电影详情页
   onGotoMore(event){
     const type = event.currentTarget.dataset.type
     wx.navigateTo({
       url: '/pages/more-movie/more-movie?type=' + type,
+    })
+  },
+  // 搜索
+  onSearchMovie(event) {
+    this.setData({
+      searchResult: true
+    })
+    wx.request({
+      url: baseUrl + 'search',
+      data: {
+        q: event.detail.value
+      },
+      success: (res) => {
+        const searchList = res.data.subjects
+        this.setData({
+          searchList
+        })
+        console.log(searchList)
+      },
+      fail: (res) => {
+        console.log(res)
+      }
     })
   },
   /**
