@@ -17,6 +17,11 @@
           "pathName": "pages/posts/posts",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/movies/movies",
+          "pathName": "pages/movies/movies",
+          "scene": null
         }
       ]
     }

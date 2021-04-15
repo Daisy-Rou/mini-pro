@@ -1,3 +1,4 @@
 <!--电影首页pages/movies/movies.wxml-->
-
-<text>pages/movies/movies.wxml</text>
+<view>
+  <movie-list></movie-list>
+</view>

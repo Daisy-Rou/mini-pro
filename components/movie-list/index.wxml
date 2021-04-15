@@ -1,0 +1,9 @@
+<!--电影首页components/movie-list/index.wxml-->
+<view>
+  <view>
+    <text>正在热映</text>
+    <text>更多</text>
+  </view>
+  <!-- 电影组件 -->
+  <h-movie></h-movie>
+</view>
