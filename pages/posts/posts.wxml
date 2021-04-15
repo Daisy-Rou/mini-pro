@@ -13,6 +13,6 @@
     </swiper-item>
   </swiper>
   <block wx:for="{{postList}}" wx:for-item="item" wx:key="index">
-    <h-post res="{{item}}"></h-post>
+    <h-post bind:posttap="goToDetail" res="{{item}}"></h-post>
   </block>
 </view>

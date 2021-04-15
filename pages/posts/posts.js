@@ -13,7 +13,7 @@ Page({
     a: '就开始你觉得好的借口',
   },
   goToDetail (event) {
-    const pid = event.currentTarget.dataset.postId
+    const pid = event.currentTarget.dataset.postId || event.detail.pid
     wx.navigateTo({
       url: '/pages/post-detail/post-detail?pid=' + JSON.stringify(pid),
     })
