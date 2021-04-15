@@ -1,4 +1,5 @@
 // pages/movies/movies.js
+const baseUrl = getApp().gBaseUrl
 Page({
 
   /**
@@ -7,6 +8,7 @@ Page({
   data: {
     inTheaters: [],
     commingSoon: [],
+    top250: [],
   },
 
   /**
@@ -14,13 +16,35 @@ Page({
    */
   onLoad: function(options) {
     // 不要在自定义组件发请求
+    // 正在热映
     wx.request({
-      url: 'http://t.talelin.com/v2/movie/in_theaters?start=0&count=3',
+      url: baseUrl + 'in_theaters',
+      data: {
+        start: 5,
+        count: 3
+      },
       success: (res) => {
         this.setData({
           inTheaters: res.data.subjects
         })
-        // this.data.inTheaters = res.data.subjects
+      }
+    })
+    // 即将上映
+    wx.request({
+      url: baseUrl + 'coming_soon?start=8&count=3',
+      success: (res) => {
+        this.setData({
+          commingSoon: res.data.subjects
+        })
+      }
+    })
+    // top250
+    wx.request({
+      url: baseUrl + 'top250?start=6&count=3',
+      success: (res) => {
+        this.setData({
+          top250: res.data.subjects
+        })
       }
     })
     // API地址

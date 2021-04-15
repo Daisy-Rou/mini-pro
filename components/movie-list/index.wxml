@@ -2,7 +2,7 @@
 <view class="container">
   <view class="title-container">
     <text>{{title}}</text>
-    <text class="more-text">更多 ></text>
+    <text class="more-text" bind:tap="onMore">更多 ></text>
   </view>
   <!-- 电影组件 -->
   <view class="movie-container">

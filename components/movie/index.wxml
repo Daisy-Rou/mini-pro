@@ -1,9 +1,10 @@
 <!--电影components/movie/index.wxml-->
 <view class="container">
-  <image class="poster" src="/images/girl.png"></image>
-  <text class="title">盗梦空间</text>
+  <image class="poster" src="{{movie.images.large}}"></image>
+  <text class="title">{{movie.title}}</text>
   <view class="rate-container">
-    <l-star score="3.8" size="22" disabled="{{true}}"></l-star>
-    <text class="score">3.8</text>
+    <l-star score="{{movie.rating.stars / 10}}" size="22" disabled="{{true}}"></l-star>
+    <text class="score">{{movie.rating.average}}</text>
   </view>
 </view>
+<!-- wxs -->

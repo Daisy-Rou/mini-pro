@@ -2,6 +2,6 @@
 <view>
   <!-- 电影list组件 -->
   <movie-list title="正在热映" movies="{{inTheaters}}" f-class="movie-list"></movie-list>
-  <movie-list title="即将上演"></movie-list>
-  <movie-list title="豆瓣Top250"></movie-list>
+  <movie-list title="即将上演" movies="{{commingSoon}}"></movie-list>
+  <movie-list title="豆瓣Top250" movies="{{top250}}"></movie-list>
 </view>

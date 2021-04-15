@@ -22,4 +22,5 @@ App({
   gPlayingMusic: false,
   // 记录每首歌的播放状态
   gPlayingPostId: -1,
+  gBaseUrl: 'http://t.talelin.com/v2/movie/',
 })
