@@ -1,11 +1,11 @@
 <!--电影首页pages/movies/movies.wxml-->
 <view>
-  <!-- 搜索组件 -->
+  <!-- 搜索组件 show-cancel="{{false}}"-->
   <l-search-bar 
     l-class="ex-search-bar" 
     placeholder="盗梦空间"
-    show-cancel="{{false}}"
     bind:linconfirm="onSearchMovie"
+    bind:lincancel="onCancelSearch"
   >
   </l-search-bar>
   <!-- 电影list组件 -->

@@ -9,14 +9,16 @@ Page({
     inTheaters: [],
     comingSoon: [],
     top250:[],
-    movies: []
+    movies: [],
+    _type: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
-   */
+  */
   onLoad: function (options) {
     const type = options.type
+    this.data._type = type
     // 正在热映
     wx.request({
       url: baseUrl + type,
@@ -34,7 +36,27 @@ Page({
       }
     })
   },
-
+  /**
+   * 页面上拉触底事件的处理函数
+  */
+  onReachBottom: function () {
+    wx.request({
+      url: baseUrl + this.data._type,
+      data: {
+        start: this.data.movies.length,
+        count: 10
+      },
+      success: (res) => {
+        let list = this.data.movies.concat(res.data.subjects)
+        this.setData({
+          movies: list
+        })
+      },
+      fail: (res) => {
+        console.log(res)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -67,13 +89,6 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
 
   },
 
