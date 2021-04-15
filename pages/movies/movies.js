@@ -5,16 +5,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    inTheaters: [],
+    commingSoon: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function(options) {
+    // 不要在自定义组件发请求
+    wx.request({
+      url: 'http://t.talelin.com/v2/movie/in_theaters?start=0&count=3',
+      success: (res) => {
+        this.setData({
+          inTheaters: res.data.subjects
+        })
+        // this.data.inTheaters = res.data.subjects
+      }
+    })
+    // API地址
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

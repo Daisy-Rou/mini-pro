@@ -1,1 +1,7 @@
 /* pages/movies/movies.wxss */
+.movie-list {
+  margin-bottom: 30rpx !important;
+}
+page {
+  background-color: #f2f2f2;
+}
