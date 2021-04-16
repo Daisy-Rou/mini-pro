@@ -48,7 +48,7 @@
     <scroll-view enable-flex="{{true}}" scroll-x="{{true}}" class="casts-container">
       <block wx:for="{{movie.castsInfo}}" wx:key="index">
         <view class="cast-container">
-          <image class="cast-image" src="{{item.img}}"></image>
+          <image bind:tap="viewMovieImage" data-url="{{item.img}}" class="cast-image" src="{{item.img}}"></image>
           <text>{{item.name}}</text>
         </view>
       </block>

@@ -8,6 +8,7 @@ Page({
    */
   data: {
     movie: {},
+    url: '',
     _movie: {}
   },
 
@@ -29,7 +30,7 @@ Page({
   },
   // 图片预览
   viewMovieImage(event) {
-    const url = this.data.movie.images.large
+    const url = event.currentTarget.dataset.url ? event.currentTarget.dataset.url : this.data.movie.images.large
     wx.previewImage({
       urls: [url],
     })
