@@ -92,7 +92,7 @@ Page({
   onReady: function () {
     let title = this.initTitle(this.data._type)
     wx.setNavigationBarTitle({
-      title: title,
+      title
     })
   },
   initTitle (data) {
@@ -105,7 +105,7 @@ Page({
         title = '即将上映'
         break
       case 'top250': 
-        title = '豆瓣top250'
+        title = '豆瓣Top250'
         break
       default: 
         title = '无标题'

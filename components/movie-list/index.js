@@ -14,7 +14,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    _titleArr: ['正在热映', '即将上演', '豆瓣Top250']
+    _titleArr: ['正在热映', '即将上映', '豆瓣Top250']
   },
 
   /**
@@ -37,7 +37,6 @@ Component({
         default:
           break;
       }
-      console.log(type)
       this.triggerEvent('moretap', {
         type
       })

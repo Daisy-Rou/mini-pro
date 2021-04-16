@@ -1,20 +1,49 @@
-// pages/movie-detail/movie-detail.js
+// 电影详情页pages/movie-detail/movie-detail.js
+import { convertToCastString } from '../../utils/util'
+const baseUrl = getApp().gBaseUrl
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    movie: {},
+    _movie: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const mid = options.mid
+    wx.request({
+      url: baseUrl + 'subject/' + mid,
+      success: (res) => {
+        this.data._movie = res.data
+        this.processMovieData(res.data)
+      },
+      fail: (res) => {
+        console.log(res)
+      }
+    })
   },
-
+  // 图片预览
+  viewMovieImage(event) {
+    const url = this.data.movie.images.large
+    wx.previewImage({
+      urls: [url],
+    })
+  },
+  // 处理电影数据
+  processMovieData(movie) {
+    const data = this.data._movie
+    data.directors = convertToCastString(movie.directors)
+    data.casts = convertToCastString(movie.casts)
+    data.types = movie.genres.join('、')
+    this.setData({
+      movie: data
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

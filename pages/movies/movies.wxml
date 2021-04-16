@@ -12,7 +12,7 @@
  <view wx:if="{{!searchResult}}">
  <!-- data-type="in_theaters" data-type="coming_soon" data-type="top250"-->
   <movie-list bind:moretap="onGotoMore" title="正在热映" movies="{{inTheaters}}" f-class="movie-list"></movie-list>
-  <movie-list bind:moretap="onGotoMore" title="即将上演" movies="{{commingSoon}}"></movie-list>
+  <movie-list bind:moretap="onGotoMore" title="即将上映" movies="{{comingSoon}}"></movie-list>
   <movie-list bind:moretap="onGotoMore" title="豆瓣Top250" movies="{{top250}}"></movie-list>
  </view>
  <view wx:else>

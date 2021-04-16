@@ -1,2 +1,41 @@
-<!--pages/movie-detail/movie-detail.wxml-->
-<text>pages/movie-detail/movie-detail.wxml</text>
+<!--电影详情页面pages/movie-detail/movie-detail.wxml-->
+<view class="container-movie">
+  <image mode="aspectFill" class="head-image" src="{{movie.images.large}}"></image>
+  <view class="head-img-hover">
+    <text class="main-title">{{movie.title}}</text>
+    <text class="sub-title">{{movie.countries[0] + ' . ' + movie.year}}</text>
+    <view class="like">
+      <text class="high-like-font">{{movie.wish_count}}</text>
+      <text class="plain-font">人喜欢</text>
+      <text class="high-like-font">{{movie.comments_count}}</text>
+      <text class="plain-font">条评论</text>
+    </view>
+    <image bind:tap="viewMovieImage" class="movie-image" src="{{movie.images.large}}"></image>
+  </view>
+  <view class="summary">
+    <view class="original-title">
+      <text>{{movie.original_title}}</text>
+    </view>
+    <view class="flex-row">
+      <text class="mark">评分</text>
+      <l-rate score="{{movie.rating.stars / 10}}" size="22" disabled="{{true}}" ></l-rate>
+      <text>{{movie.rating.average}}</text>
+      <!-- <template is="starsTemplate" data="{{stars:movie.stars, score:movie.score}}"></template> -->
+    </view>
+    <view class="flex-row">
+      <text class="mark">导演</text>
+      <text>{{movie.directors}}</text>
+    </view>
+    <view class="flex-row">
+      <text class="mark">影人</text>
+      <text>{{movie.casts}}</text>
+    </view>
+    <view class="flex-row">
+      <text class="mark">类型</text>
+      <text>{{movie.types}}</text>
+    </view>
+  </view>
+  <view>
+
+  </view>
+</view>

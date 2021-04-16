@@ -27,6 +27,13 @@
         {
           "name": "pages/more-movie/more-movie",
           "pathName": "pages/more-movie/more-movie",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/movie-detail/movie-detail",
+          "pathName": "pages/movie-detail/movie-detail",
+          "query": "mid=333",
           "scene": null
         }
       ]

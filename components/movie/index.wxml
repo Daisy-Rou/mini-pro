@@ -1,4 +1,4 @@
-<!--电影components/movie/index.wxml-->
+<!--电影组件components/movie/index.wxml-->
 <view class="container" bind:tap="toMovieDetail">
   <image class="poster" src="{{movie.images.large}}"></image>
   <text class="title">{{movie.title}}</text>

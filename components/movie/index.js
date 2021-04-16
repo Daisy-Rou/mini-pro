@@ -18,6 +18,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    // 跳转到电影详情页面
     toMovieDetail(event) {
       const mid = this.properties.movie.id
       wx.navigateTo({

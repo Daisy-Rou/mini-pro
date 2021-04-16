@@ -7,7 +7,7 @@ Page({
    */
   data: {
     inTheaters: [],
-    commingSoon: [],
+    comingSoon: [],
     top250: [],
     searchList: [],
     searchResult: false
@@ -36,7 +36,7 @@ Page({
       url: baseUrl + 'coming_soon?start=8&count=3',
       success: (res) => {
         this.setData({
-          commingSoon: res.data.subjects
+          comingSoon: res.data.subjects
         })
       }
     })
