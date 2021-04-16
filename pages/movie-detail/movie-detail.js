@@ -1,5 +1,5 @@
 // 电影详情页pages/movie-detail/movie-detail.js
-import { convertToCastString } from '../../utils/util'
+import { convertToCastString, convertToCastInfos } from '../../utils/util'
 const baseUrl = getApp().gBaseUrl
 Page({
 
@@ -19,7 +19,7 @@ Page({
     wx.request({
       url: baseUrl + 'subject/' + mid,
       success: (res) => {
-        this.data._movie = res.data
+        this.data._movie = JSON.parse(JSON.stringify(res.data))
         this.processMovieData(res.data)
       },
       fail: (res) => {
@@ -36,10 +36,11 @@ Page({
   },
   // 处理电影数据
   processMovieData(movie) {
-    const data = this.data._movie
+    const data = JSON.parse(JSON.stringify(this.data._movie))
     data.directors = convertToCastString(movie.directors)
     data.casts = convertToCastString(movie.casts)
     data.types = movie.genres.join('、')
+    data.castsInfo = convertToCastInfos(this.data._movie.casts)
     this.setData({
       movie: data
     })

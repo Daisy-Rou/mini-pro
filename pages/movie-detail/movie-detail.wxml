@@ -18,8 +18,10 @@
     </view>
     <view class="flex-row">
       <text class="mark">评分</text>
-      <l-rate score="{{movie.rating.stars / 10}}" size="22" disabled="{{true}}" ></l-rate>
-      <text>{{movie.rating.average}}</text>
+      <view class="score-container">
+        <l-rate score="{{movie.rating.stars / 10}}" size="24" disabled="{{true}}" ></l-rate>
+        <text class="average">{{movie.rating.average}}</text>
+      </view>
       <!-- <template is="starsTemplate" data="{{stars:movie.stars, score:movie.score}}"></template> -->
     </view>
     <view class="flex-row">
@@ -35,7 +37,21 @@
       <text>{{movie.types}}</text>
     </view>
   </view>
-  <view>
-
+  <view class="hr"></view>
+  <view class="synopsis">
+    <text class="synopsis-title">剧情简介</text>
+    <text class="synopsis-content">{{movie.summary}}</text>
+  </view>
+  <view class="hr"></view>
+  <view class="casts">
+    <text class="cast-font">影人</text>
+    <scroll-view enable-flex="{{true}}" scroll-x="{{true}}" class="casts-container">
+      <block wx:for="{{movie.castsInfo}}" wx:key="index">
+        <view class="cast-container">
+          <image class="cast-image" src="{{item.img}}"></image>
+          <text>{{item.name}}</text>
+        </view>
+      </block>
+    </scroll-view>
   </view>
 </view>

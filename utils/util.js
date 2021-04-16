@@ -21,8 +21,20 @@ const convertToCastString = casts => {
   }
   return castsjoin.substring(0, castsjoin.length - 2)
 }
-
+const convertToCastInfos = casts => {
+  console.log('casts', casts)
+  const castsArray = []
+  for (let idx in casts) {
+    let cast = {
+      img: casts[idx].avatars ? casts[idx].avatars.large : '',
+      name: casts[idx].name
+    }
+    castsArray.push(cast)
+  }
+  return castsArray;
+}
 module.exports = {
   formatTime,
-  convertToCastString
+  convertToCastString,
+  convertToCastInfos
 }
