@@ -51,9 +51,9 @@ Page({
     })
     // API地址
   },
-  // 跳转到电影详情页
+  // 跳转到更多电影页
   onGotoMore(event){
-    const type = event.currentTarget.dataset.type
+    const type = event.currentTarget.dataset.type || event.detail.type
     wx.navigateTo({
       url: '/pages/more-movie/more-movie?type=' + type,
     })
@@ -73,7 +73,6 @@ Page({
         this.setData({
           searchList
         })
-        console.log(searchList)
       },
       fail: (res) => {
         console.log(res)

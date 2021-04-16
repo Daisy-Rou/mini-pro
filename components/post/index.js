@@ -23,7 +23,8 @@ Component({
    */
   methods: {
     goTap(event) {
-      const pid = event.currentTarget.dataset.postId
+      // const pid = event.currentTarget.dataset.postId
+      const pid = this.properties.res.postId
       // 自定义事件
       this.triggerEvent('posttap', {
         pid

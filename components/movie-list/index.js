@@ -14,7 +14,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    _titleArr: ['正在热映', '即将上演', '豆瓣Top250']
   },
 
   /**
@@ -22,10 +22,29 @@ Component({
    */
   methods: {
     onMore() {
-      wx.navigateTo({
-        url: '/pages/more-movie/more-movie',
+      let type = ''
+      const title = this.data._titleArr
+      switch (this.properties.title) {
+        case title[0]:
+          type = 'in_theaters'
+          break;
+        case title[1]:
+          type = 'coming_soon'
+          break;
+        case title[2]:
+          type = 'top250'
+          break;
+        default:
+          break;
+      }
+      console.log(type)
+      this.triggerEvent('moretap', {
+        type
       })
-      console.log(111)
+      // wx.navigateTo({
+      //   url: '/pages/more-movie/more-movie',
+      // })
+      // console.log(111)
     }
   }
 })
